@@ -9,7 +9,7 @@ import checkoutRote from "./routes/checkoutRoute.js";
 import commentRoute from "./routes/commentRoute.js";
 import cors from "cors";
 const app = express();
-
+db();
 dotenv.config();
 
 app.use(express.json());
@@ -22,5 +22,4 @@ app.use("/checkout", checkoutRote);
 app.use("/comment", commentRoute);
 app.listen(process.env.PORT || 8000, async () => {
   console.log("Server is running");
-  db();
 });

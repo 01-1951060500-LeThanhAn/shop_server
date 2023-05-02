@@ -1,0 +1,12 @@
+GET http://localhost:8000/api/users/listuser
+Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDM2Yjk0MDZlNWIzMGVjZTE3MzRhZmEiLCJpYXQiOjE2ODIwNzAyNjQsImV4cCI6MTY4MjA3Mzg2NH0.HByJ8IDfpUVmC_vHSjfqBLfPyDFusTFsoY4a1g2o-GY
+
+###
+
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "an@gmail.com",
+    "password": "111111"
+}

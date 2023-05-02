@@ -7,7 +7,7 @@ dotenv.config();
 async function db() {
   try {
     await mongoose.connect(
-      "mongodb+srv://lethanhancr7112001:Thanhanvodoi123%40@cluster0.hm7ssdc.mongodb.net/socials"
+      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.hm7ssdc.mongodb.net/${process.env.DB_DATABASE}`
     );
     console.log("connected");
   } catch (error) {

@@ -1,5 +1,5 @@
 import express from "express";
-import { body, check, validationResult } from "express-validator";
+import { validationResult } from "express-validator";
 import UserModels from "../models/UserModels.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -8,6 +8,9 @@ import {
   verifyTokenAndAdmin,
   verifyTokenAndAuthorization,
 } from "../middleware/auth.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 const router = express.Router();
 
 router.post("/login", async (req, res) => {
@@ -28,7 +31,7 @@ router.post("/login", async (req, res) => {
           isAdmin: user.isAdmin,
           username: user.username,
         },
-        "social",
+        process.env.JWT_SECRET,
         { expiresIn: "12h" }
       );
       res.status(200).json({

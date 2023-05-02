@@ -12,7 +12,7 @@ function checkToken(req, res, next) {
     req?.headers?.authorization && req?.headers?.authorization.split(" ")[1];
 
   try {
-    jwt.verify(token, "social", (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       if (err) {
         res.status(403).json("Token is valid");
       }
